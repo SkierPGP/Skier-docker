@@ -46,9 +46,9 @@ def _build_image(target, from_local: bool=False, local_image: str="skier-base"):
     proc = subprocess.Popen(command)
     proc.wait()
     if proc.returncode != 0:
-        print(red + "BUILD: Build failed with non-zero exit code {}".format(proc.returncode))
+        print(red + "BUILD: Build failed with non-zero exit code {}".format(proc.returncode) + normal)
     else:
-        print(green + "BUILD: Build completed successfully.")
+        print(green + "BUILD: Build completed successfully." + normal)
 
 def _bootstrap(from_local: bool=False, local_image="skier"):
     currdir = os.getcwd() + "/" # Safety first!
@@ -104,7 +104,7 @@ def _start(target: str, detached: bool=False):
     basecommand = ["docker", "run", "--link", "skier-redis:redis", "--name", "skier", "--volumes-from", "skier-keyring",  "-p", "5000:5000", "skier"]
     command = basecommand
     if detached:
-        command.append("-d")
+        command.insert(-1, "-d")
 
     command += ["/var/skier/startup.sh"]
     subprocess.call(command)
