@@ -1,0 +1,6 @@
+# Change this hostname.
+hostname: pgp.example.com
+
+# Do not change this without good reason.
+flask_cfg:
+  DEBUG: false
