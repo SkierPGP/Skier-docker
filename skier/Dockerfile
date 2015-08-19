@@ -25,6 +25,8 @@ ENV PATH="/var/skier/venv/bin:$PATH"
 # Run setup script
 RUN /var/skier/pyapp/setup.sh /var/skier/pyapp
 
+# Change WORKDIR
+WORKDIR /var/skier/pyapp
 # Run migrations
 RUN /var/skier/pyapp/manager.py db upgrade
 
