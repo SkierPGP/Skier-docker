@@ -13,7 +13,7 @@ ADD config.yml /var/skier/pyapp/config.yml
 ADD startup.sh /var/skier/startup.sh
 
 # Add supervisor config - tbd
-ADD ../cfgs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD cfgs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Verify sources
 RUN keybase dir verify --assert github:sundwarf --assert reddit:octagonclock --assert dns:sundwarf.me /var/skier/pyapp
