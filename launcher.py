@@ -61,14 +61,6 @@ def _bootstrap(from_local: bool=False, local_image="skier"):
     print(purple + "LAUNCH: Beginning bootstrap for new Skier app...")
     print("LAUNCH: Using base image {}".format(local_image) + normal)
 
-    print(purple + "BOOTSTRAP: Building data-only container..." + normal)
-
-    dataonlycmd = basecommand + ["--name", "skier-keyring", "-v", "{}:/var/skier/keyring".format(currdir + "keyring/"), "ubuntu:15.04", "true"]
-
-    proc = subprocess.Popen(dataonlycmd)
-    proc.wait()
-    if proc.returncode != 0:
-        print(blue + "BOOTSTRAP: Data-only container already exists.")
 
     print(purple + "BOOTSTRAP: Building redis container..." + normal)
 
