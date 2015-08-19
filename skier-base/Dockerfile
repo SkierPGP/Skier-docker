@@ -15,7 +15,7 @@ RUN apt-get -y install supervisor && \
 RUN mkdir /var/skier/
 
 # Install dependencies
-RUN apt-get -y install gnupg python3 virtualenv nodejs-legacy npm redis-server redis-tools python3.4-dev libyaml-dev pandoc
+RUN apt-get -y install gnupg python3 virtualenv nodejs-legacy npm redis-server redis-tools python3.4-dev libyaml-dev pandoc libpq-dev
 
 RUN npm install -g keybase-installer
 RUN keybase-installer

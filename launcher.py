@@ -21,7 +21,7 @@ def _build_image(target, from_local: bool=False, local_image: str="skier-base"):
     command = ["docker", "build"]
     dir = target
     if not os.path.exists(dir):
-        print(red + "STOP: Target {} does not exist." + normal, file=sys.stderr)
+        print(red + "STOP: Target {} does not exist.".format(target) + normal, file=sys.stderr)
         sys.exit(1)
     print(green + "LAUNCH: Beginning build of target {} {}".format(dir, "from local image {}".format(local_image) if from_local else "") + normal)
     # First, replace any FROM images if defined.
@@ -137,7 +137,7 @@ if __name__ == "__main__":
     builds.add_argument("--build-skier", help="Build the Skier image.", action="store_true", default=False)
 
     parser.add_argument("--from-local", help="Use a local image.", action="store_true", default=False)
-    parser.add_argument("--local-image", help="Local image to use.", default="base")
+    parser.add_argument("--local-image", help="Local image to use.", default="skier-base")
 
     parser.add_argument("-b", "--bootstrap", help="Bootstrap Skier.", action="store_true", default=False)
 
@@ -184,7 +184,7 @@ if __name__ == "__main__":
         _build_image("skier", True, "skier-base")
 
     if args.build_base:
-        _build_image("base", False)
+        _build_image("skier-base", from_local=args.from_local, local_image="ubuntu:15.04" if not args.from_local else image)
 
     if args.build_skier:
         _build_image("skier", from_local=args.from_local, local_image=image)
