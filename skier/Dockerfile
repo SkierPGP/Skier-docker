@@ -3,7 +3,7 @@ FROM sundwarf/skier-base
 MAINTAINER eyesismine@gmail.com
 
 # Clone app
-RUN mkdir /var/skier/{logs,pyapp}
+RUN mkdir /var/skier/logs /var/skier/pyapp
 RUN git clone https://git.sundwarf.me/Skier/Skier.git /var/skier/pyapp
 
 # Add config.yml
