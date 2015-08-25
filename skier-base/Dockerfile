@@ -28,7 +28,7 @@ ENV VIRTUAL_ENV="/var/skier/venv"
 ENV PATH="/var/skier/venv/bin:$PATH"
 
 # Install python dependencies
-RUN pip install -r https://git.sundwarf.me/Skier/Skier/raw/master/requirements.txt
+RUN pip install -r https://raw.githubusercontent.com/SkierPGP/Skier/master/requirements.txt
 
 RUN mkdir /var/run/sshd
 RUN echo 'root:skierdocker' | chpasswd
