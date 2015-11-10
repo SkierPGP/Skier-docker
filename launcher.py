@@ -73,7 +73,7 @@ def _bootstrap(from_local: bool=False, local_image="skier"):
         sys.exit(1)
 
     print(purple + "BOOTSTRAP: Verifying first launch of Skier container..." + normal)
-    skiercmd = basecommand + ["--name", "skier", "--volumes-from", "skier-keyring", local_image, "true"]
+    skiercmd = basecommand + ["--name", "skier", local_image, "true"]
     proc = subprocess.Popen(skiercmd)
     proc.wait()
     if proc.returncode != 0:

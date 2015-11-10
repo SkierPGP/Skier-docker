@@ -4,7 +4,7 @@ MAINTAINER eyesismine@gmail.com
 
 # Clone app
 RUN mkdir /var/skier/log /var/skier/pyapp
-RUN git clone https://git.sundwarf.me/Skier/Skier.git /var/skier/pyapp
+RUN git clone https://github.com/SkierPGP/Skier.git /var/skier/pyapp
 
 # Add config.yml
 ADD config.yml /var/skier/pyapp/config.yml
