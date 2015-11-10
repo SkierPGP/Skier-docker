@@ -16,7 +16,7 @@ ADD startup.sh /var/skier/startup.sh
 ADD cfgs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Verify sources
-RUN keybase dir verify --assert github:sundwarf --assert reddit:octagonclock --assert dns:sundwarf.me /var/skier/pyapp
+RUN keybase dir verify --assert github:sundwarf --assert reddit:octagonclock --assert dns:naval.tf --assert dns:veriny.tf /var/skier/pyapp
 
 # Set virtualenv
 ENV VIRTUAL_ENV="/var/skier/venv"

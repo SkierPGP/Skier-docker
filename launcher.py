@@ -93,7 +93,7 @@ def _bootstrap(from_local: bool=False, local_image="skier"):
 
 def _start(target: str, detached: bool=False):
     print(purple + "LAUNCH: Starting Skier containers.." + normal)
-    basecommand = ["docker", "run", "--link", "skier-redis:redis", "--name", "skier", "-p", "5000:5000", "-p", "2222:2222", "skier"]
+    basecommand = ["docker", "run", "--link", "skier-redis:redis", "--name", "skier", "--net", '"--host"', "skier"]
     command = basecommand
     if detached:
         command.insert(-1, "-d")
